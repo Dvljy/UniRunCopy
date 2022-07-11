@@ -4,14 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float JumpPower;
+
+    Rigidbody2D rigid;
+    Animation anim;
+
+    bool isJump = false;
+
+    void Awake()
     {
+        rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animation>();
         
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        PJ();
+        
+    }
+
+    void PJ()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isJump = true;
+            rigid.AddForce(Vector3.up * JumpPower, ForceMode2D.Impulse);
+              
+        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         
     }
