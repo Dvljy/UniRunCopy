@@ -9,13 +9,14 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
     AudioSource playeraudio;
-    AudioClip Jumpaudio;
+    public AudioClip Die;
     Renderer PyColor;
 
     int JumpCount;
 
-    bool isJump = false;
+
     bool isGrounded = true;
+    bool isDead = false;
 
     void Awake()
     {
@@ -29,8 +30,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         PJ();
-        //Die();
-
+        PD();
+        if (isDead)
+        {
+            return;
+        }
 
     }
 
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour
 
             rigid.velocity = Vector3.up * JumpPower;
             playeraudio.Play();
-            
+
 
         }
         if (isGrounded)
@@ -59,16 +63,18 @@ public class Player : MonoBehaviour
 
     }
 
-    /*void Die()
+    void PD()
     {
-        if (true)
+        if (isDead)
         {
             PyColor.material.color = Color.red;
-
+            playeraudio.clip = Die;
+            playeraudio.Play();
             Destroy(gameObject, 3f);
+
         }
-        
-    }*/
+
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,6 +84,14 @@ public class Player : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Dead" && !isDead)
+        {
+            PD();
+        }
     }
 
 }
