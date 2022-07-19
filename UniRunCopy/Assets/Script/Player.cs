@@ -9,14 +9,12 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
     AudioSource playeraudio;
+    [SerializeField] SpriteRenderer PyColor;
     public AudioClip Die;
-    Renderer PyColor;
-
     int JumpCount;
 
 
     bool isGrounded = true;
-    bool isDead = false;
 
     void Awake()
     {
@@ -29,18 +27,18 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        PJ();
-        PlayerDie();
-        if (isDead)
-        {
+        if (GameManager.isDead)
             return;
-        }
+        PJ();
+        //PlayerDie();
+        
+        
 
     }
 
     void PJ()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && JumpCount < 1)
+        if (Input.GetKeyDown(KeyCode.Space) && JumpCount < 2)
         {
             JumpCount++;
 
@@ -74,10 +72,12 @@ public class Player : MonoBehaviour
 
     void PlayerDie()
     {
+        PyColor.material.color = Color.red;
         playeraudio.clip = Die;
         playeraudio.Play();
         rigid.velocity = Vector2.zero;
-        isDead = true;
+        GameManager.isDead = true;
+        Destroy(gameObject,3);
     }
 
 
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Dead" && !isDead)
+        if (other.tag == "Dead" && !GameManager.isDead)
         {
             PlayerDie();
         }

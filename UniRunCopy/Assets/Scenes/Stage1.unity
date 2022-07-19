@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpPower: 7
+  PyColor: {fileID: 1553203632}
   Die: {fileID: 8300000, guid: 748bfaff907ecaa4b9ead1b20071465f, type: 3}
 --- !u!50 &1553203638
 Rigidbody2D:

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject gameoverUI;
     private int score = 0;
+   public static bool isDead = false;
+
 
     void Awake()
     {
