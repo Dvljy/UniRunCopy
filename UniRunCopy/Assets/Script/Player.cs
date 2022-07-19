@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         PJ();
-        PD();
+        PlayerDie();
         if (isDead)
         {
             return;
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         }
         if (isGrounded)
         {
-            JumpCount = 0;
+
             anim.SetBool("isJump", false);
             anim.SetBool("isGrounded", true);
         }
@@ -63,23 +63,31 @@ public class Player : MonoBehaviour
 
     }
 
-    void PD()
+    /*void PD()
     {
-        if (isDead)
-        {
-            PyColor.material.color = Color.red;
-            playeraudio.clip = Die;
-            playeraudio.Play();
-            Destroy(gameObject, 3f);
+        PyColor.material.color = Color.red;
+        playeraudio.clip = Die;
+        playeraudio.Play();
+        isDead = true;
+        Destroy(gameObject, 3f);
+    }*/
 
-        }
-
+    void PlayerDie()
+    {
+        playeraudio.clip = Die;
+        playeraudio.Play();
+        rigid.velocity = Vector2.zero;
+        isDead = true;
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isGrounded = true;
+        if (collision.contacts[0].normal.y > 0.7f)
+        {
+            isGrounded = true;
+            JumpCount = 0;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -90,7 +98,7 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Dead" && !isDead)
         {
-            PD();
+            PlayerDie();
         }
     }
 
