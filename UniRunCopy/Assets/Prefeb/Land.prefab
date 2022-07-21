@@ -178,6 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4689761411793871087}
   - component: {fileID: 4689761411793871084}
+  - component: {fileID: -87960716375855307}
+  - component: {fileID: 8723661766891310910}
   m_Layer: 0
   m_Name: Land
   m_TagString: Platforms
@@ -194,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 4689761411793871085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4689761411840693705}
@@ -240,6 +242,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.566971, y: 2.786933}
   m_EdgeRadius: 0
+--- !u!114 &-87960716375855307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689761411793871085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9061beea8163a83478c7e707dd6dc197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+--- !u!114 &8723661766891310910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689761411793871085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f55d3bb7b7fbe4a9d54a0969ea4e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles: []
 --- !u!1 &4689761411840693710
 GameObject:
   m_ObjectHideFlags: 0

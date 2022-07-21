@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Land : MonoBehaviour
 {
-    BoxCollider2D bcd;
+        
     public GameObject[] obstacles;
     private bool stepped = false;
 

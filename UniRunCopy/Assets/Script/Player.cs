@@ -30,10 +30,6 @@ public class Player : MonoBehaviour
         if (GameManager.isDead)
             return;
         PJ();
-        //PlayerDie();
-        
-        
-
     }
 
     void PJ()
@@ -61,14 +57,6 @@ public class Player : MonoBehaviour
 
     }
 
-    /*void PD()
-    {
-        PyColor.material.color = Color.red;
-        playeraudio.clip = Die;
-        playeraudio.Play();
-        isDead = true;
-        Destroy(gameObject, 3f);
-    }*/
 
     void PlayerDie()
     {
@@ -80,6 +68,10 @@ public class Player : MonoBehaviour
         Destroy(gameObject,3);
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -88,6 +80,7 @@ public class Player : MonoBehaviour
             isGrounded = true;
             JumpCount = 0;
         }
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
