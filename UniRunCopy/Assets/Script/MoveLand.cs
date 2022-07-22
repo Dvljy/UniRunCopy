@@ -8,7 +8,7 @@ public class MoveLand : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

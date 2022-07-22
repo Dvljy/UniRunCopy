@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        OnPlayerDead();
     }
 
     public void AddScore(int newScore)
@@ -48,8 +50,10 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDead()
     {
-        isGameOver = true;
+        if (!isGameOver)
+        {
+            gameoverUI.SetActive(true);
+        }
 
-        gameoverUI.SetActive(true);
     }
 }

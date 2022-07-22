@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
         playeraudio.Play();
         rigid.velocity = Vector2.zero;
         GameManager.isDead = true;
+        
         Destroy(gameObject,3);
     }
 

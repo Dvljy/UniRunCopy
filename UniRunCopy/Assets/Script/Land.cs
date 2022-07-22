@@ -33,5 +33,4 @@ public class Land : MonoBehaviour
             GameManager.instance.AddScore(1);
         }
     }
-
 }
