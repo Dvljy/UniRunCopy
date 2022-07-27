@@ -35,7 +35,7 @@ public class LandSpawner : MonoBehaviour // 콜론은 상속 개념
             // Quaternion(x,y,z,w)은 회전을 나타냄
             platforms[i] = Instantiate(platformPrefeb, poolPosition, Quaternion.identity);
         }
-     
+         
         lastSpawTime = 0f;
         timeBetSpawn = 0f;
     }

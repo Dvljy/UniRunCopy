@@ -27,16 +27,21 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("씬에 두 개 이상의 게임 매니저가 존재합니다!");
             Destroy(gameObject);
         }
-    }
 
+
+
+
+    }
 
     void Update()
     {
-        if (isGameOver && Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) && isDead)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
-        OnPlayerDead();
+        if (isDead)
+            OnPlayerDead();
     }
 
     public void AddScore(int newScore)
@@ -54,6 +59,7 @@ public class GameManager : MonoBehaviour
         {
             gameoverUI.SetActive(true);
         }
+        Time.timeScale = 0;
 
     }
 }

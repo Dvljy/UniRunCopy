@@ -43,6 +43,11 @@ public class Player : MonoBehaviour
 
 
         }
+        else if (Input.GetKeyUp(KeyCode.Space) && rigid.velocity.y > 0)
+        {
+            rigid.velocity = rigid.velocity * 0.5f;
+        }
+
         if (isGrounded)
         {
 
@@ -58,15 +63,13 @@ public class Player : MonoBehaviour
     }
 
 
-    void PlayerDie()
+    public void PlayerDie()
     {
         PyColor.material.color = Color.red;
         playeraudio.clip = Die;
         playeraudio.Play();
         rigid.velocity = Vector2.zero;
         GameManager.isDead = true;
-        
-        Destroy(gameObject,3);
     }
 
     private void FixedUpdate()

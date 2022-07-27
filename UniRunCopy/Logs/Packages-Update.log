@@ -52,3 +52,12 @@ Update Mode: mergeDefaultDependencies
 
 The following packages were added:
   com.unity.2d.sprite@1.0.0
+
+=== Wed Jul 27 12:42:55 2022
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.unity.2d.sprite@1.0.0
+  com.unity.feature.2d@1.0.0
