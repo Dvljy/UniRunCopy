@@ -1776,9 +1776,8 @@ GameObject:
   - component: {fileID: 1553203636}
   - component: {fileID: 1553203634}
   - component: {fileID: 1553203635}
-  - component: {fileID: 1553203637}
   - component: {fileID: 1553203638}
-  - component: {fileID: 1553203639}
+  - component: {fileID: 1553203637}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2021,18 +2020,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
---- !u!114 &1553203639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553203628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284a883346b75154cb227348721e895f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1558152356
 GameObject:
   m_ObjectHideFlags: 0
