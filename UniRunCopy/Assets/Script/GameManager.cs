@@ -35,13 +35,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isDead)
+       
+        if ( Input.GetMouseButton(1)||Input.GetKeyDown(KeyCode.Space)&&isDead)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Time.timeScale = 1;
+            isDead = false;
         }
         if (isDead)
+        {
             OnPlayerDead();
+            Time.timeScale = 1;
+        }
+            
     }
 
     public void AddScore(int newScore)

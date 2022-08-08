@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         PyColor.material.color = Color.red;
         playeraudio.clip = Die;
         playeraudio.Play();
-        rigid.velocity = Vector2.zero;
+        anim.enabled = false;
         GameManager.isDead = true;
     }
 

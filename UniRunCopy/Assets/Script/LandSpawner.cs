@@ -43,7 +43,7 @@ public class LandSpawner : MonoBehaviour // 콜론은 상속 개념
 
     void Update()
     {
-        
+        if (GameManager.isDead) return;
 
         if (Time.time >= lastSpawTime + timeBetSpawn)
         {
@@ -65,11 +65,13 @@ public class LandSpawner : MonoBehaviour // 콜론은 상속 개념
                 currentIndex = 0;
             }
 
-            if (GameManager.instance.isGameOver)
-            {
-                return;
-            }
+            
         }
+        //if (GameManager.isDead)
+        //{
+        //    currentIndex = 3;
+        //    return;
+        //}
     }
 
     

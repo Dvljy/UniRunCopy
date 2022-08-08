@@ -18,5 +18,9 @@ public class MoveLand : MonoBehaviour
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
+        if (GameManager.isDead)
+        {
+            speed = 0;
+        }
     }
 }
