@@ -7,6 +7,7 @@ TagManager:
   - Dead
   - Platforms
   - obstacles
+  - Ground
   layers:
   - Default
   - TransparentFX

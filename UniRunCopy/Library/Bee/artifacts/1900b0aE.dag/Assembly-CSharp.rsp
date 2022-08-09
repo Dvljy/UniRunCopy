@@ -354,6 +354,8 @@
 "Assets/Script/Stage 1/Player.cs"
 "Assets/Script/Stage 1/Spike.cs"
 "Assets/Script/Stage 1/Test01.cs"
+"Assets/Script/Stage 2/BackGroundScolling.cs"
+"Assets/Script/Stage 2/Manager.cs"
 "Assets/Script/Stage 2/PlayerCR.cs"
 "Assets/Simple 2D Platformer BE2/ReadMe/Scripts/ReadmeBE2.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
