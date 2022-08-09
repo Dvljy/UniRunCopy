@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCR : MonoBehaviour
 {
     Rigidbody2D rigid;
     Animator anim;
+    SpriteRenderer sprite;
 
     [SerializeField] float speed;
     float JumpCount = 2;
     bool isGrounded = true;
-    
+
 
 
     void Start()
     {
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,15 +33,15 @@ public class PlayerCR : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
+
             JumpCount++;
-            rigid.velocity = new Vector3(0,speed,0);
-            
+            rigid.velocity = new Vector3(0, speed, 0);
+
         }
         else
         {
-            
-            
+
+
         }
         if (!isGrounded)
         {
@@ -49,7 +51,13 @@ public class PlayerCR : MonoBehaviour
         {
             anim.SetBool("isJump", false);
         }
-        
+
+    }
+
+    void PD()
+    {
+        sprite.color = Color.red;
+        Destroy(gameObject);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -65,5 +73,15 @@ public class PlayerCR : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Ttang")
+            PD();
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
     }
 }

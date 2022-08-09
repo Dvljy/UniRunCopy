@@ -8,6 +8,7 @@ TagManager:
   - Platforms
   - obstacles
   - Ground
+  - Ttang
   layers:
   - Default
   - TransparentFX
