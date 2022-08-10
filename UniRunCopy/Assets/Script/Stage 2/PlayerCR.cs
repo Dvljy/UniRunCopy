@@ -77,7 +77,13 @@ public class PlayerCR : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ttang")
+        {
             PD();
+            //GameManager.instance.isGameOver = true;
+            GameManager.isDead = true;
+            GameManager.instance.audio.enabled = false;
+        }
+           
 
     }
     private void OnTriggerExit2D(Collider2D collision)

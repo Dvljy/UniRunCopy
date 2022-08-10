@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] SpriteRenderer PyColor;
     public AudioClip Die;
     int JumpCount;
+    
 
 
     bool isGrounded = true;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playeraudio = GetComponent<AudioSource>();
+        
     }
 
 

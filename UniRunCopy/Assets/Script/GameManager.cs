@@ -8,6 +8,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public AudioSource audio;
+    //public AudioClip Main;
 
     public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI scoreText;
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        audio = GetComponent<AudioSource>();
+        //audio.clip = Main;
+        audio.Play();
         if (instance == null)
         {
             instance = this;
