@@ -60,7 +60,6 @@ public class PlayerCR : MonoBehaviour
     {
         ad.clip = ac;
         ad.Play();
-        transform.position = Vector2.zero;
         sprite.color = Color.red;
         Destroy(gameObject,1);
     }

@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public AudioSource aud;
-    //public AudioClip Main;
-    
+    //public AudioClip Main
+    [SerializeField] GameObject Panel;
+
 
 
     [HideInInspector]public bool isGameOver = false;
@@ -59,7 +60,12 @@ public class GameManager : MonoBehaviour
             OnPlayerDead();
             Time.timeScale = 1;
         }
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Panel.SetActive(!Panel.activeSelf);
+            
+        }
+
     }
 
     public void AddScore(int newScore)

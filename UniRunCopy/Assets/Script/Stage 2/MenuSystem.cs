@@ -8,35 +8,52 @@ using TMPro;
 
 public class MenuSystem : MonoBehaviour
 {
-    [SerializeField] GameObject Panel;
-    [SerializeField] Button[] bu;
+    [SerializeField] string[] but;
+    [SerializeField] Transform Panel;
+    Button[] btn;
+    [SerializeField] Button bu;
+
+    void Awake()
+    {
+        btn = new Button[but.Length];
+
+    }
+
+    void OnEnable()
+    {
+        Time.timeScale = 0;
+    }
+    
 
     void Start()
     {
-        
+        for (int i = 0; i < but.Length; i++)
+        {
+            btn[i] = Instantiate(bu, Panel);
+            btn[i].GetComponent<RectTransform>().anchoredPosition += new Vector2(0, i * -260);
+            btn[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = but[i]; ;
+            int b = i;
+            btn[i].onClick.AddListener(() => Btce(b));
+            
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Btce(int a)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        switch (a)
         {
-            Panel.SetActive(true);
-            Time.timeScale = 0;
-            if (bu[0].onClick.AddListener(() => ))
-            {//
-                //Input.GetButtonDown("Continue")
-                Panel.SetActive(false);
-                Time.timeScale = 1;
-            }
-            if (bu[1].onClick.AddListener(() => ))
-            {//
-                //Input.GetButtonDown("ReStart")
-                Panel.SetActive(false);
-                Time.timeScale = 1;
-                SceneManager.LoadScene("Stage 1");
-            }
+            case 0:
+                gameObject.SetActive(false);
+                break;
+            case 1:
+                SceneManager.LoadScene(0);
+                break;
         }
-        
+    }
+
+ 
+    void OnDisable()
+    {
+        Time.timeScale = 1;    
     }
 }
