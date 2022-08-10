@@ -16,6 +16,7 @@ public class Spike : MonoBehaviour
     void Start()
     {
         a = Random.Range(0, 3);
+        
         for (int i = 0; i < obstacles.Length; i++)
         {
             if (a == 0)
@@ -37,7 +38,7 @@ public class Spike : MonoBehaviour
 
     void Update()
     {
-
+        
 
 
     }

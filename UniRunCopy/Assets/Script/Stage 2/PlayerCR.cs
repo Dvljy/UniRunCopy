@@ -8,6 +8,8 @@ public class PlayerCR : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
     SpriteRenderer sprite;
+    public AudioSource ad;
+    public AudioClip ac;
 
     [SerializeField] float speed;
     float JumpCount = 2;
@@ -33,7 +35,7 @@ public class PlayerCR : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            ad.Play();
             JumpCount++;
             rigid.velocity = new Vector3(0, speed, 0);
 
@@ -56,8 +58,11 @@ public class PlayerCR : MonoBehaviour
 
     void PD()
     {
+        ad.clip = ac;
+        ad.Play();
+        transform.position = Vector2.zero;
         sprite.color = Color.red;
-        Destroy(gameObject);
+        Destroy(gameObject,1);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -81,7 +86,7 @@ public class PlayerCR : MonoBehaviour
             PD();
             //GameManager.instance.isGameOver = true;
             GameManager.isDead = true;
-            GameManager.instance.audio.enabled = false;
+            GameManager.instance.aud.enabled = false;
         }
            
 

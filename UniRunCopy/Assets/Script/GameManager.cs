@@ -8,10 +8,12 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public AudioSource audio;
+    public AudioSource aud;
     //public AudioClip Main;
+    
 
-    public bool isGameOver = false;
+
+    [HideInInspector]public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject gameoverUI;
     private int score = 0;
@@ -20,9 +22,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        
+        aud = GetComponent<AudioSource>();
         //audio.clip = Main;
-        audio.Play();
+        aud.Play();
         if (instance == null)
         {
             instance = this;
@@ -40,9 +43,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       
+        
         if ( Input.GetMouseButton(1)||Input.GetKeyDown(KeyCode.Space)&&isDead)
         {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("Stage 1");
             isDead = false;
         }
@@ -55,7 +59,7 @@ public class GameManager : MonoBehaviour
             OnPlayerDead();
             Time.timeScale = 1;
         }
-            
+        
     }
 
     public void AddScore(int newScore)

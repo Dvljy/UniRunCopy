@@ -9,6 +9,8 @@ TagManager:
   - obstacles
   - Ground
   - Ttang
+  - Continue
+  - ReStart
   layers:
   - Default
   - TransparentFX
