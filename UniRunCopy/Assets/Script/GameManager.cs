@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     //public AudioClip Main
     [SerializeField] GameObject Panel;
 
-
-
     [HideInInspector]public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject gameoverUI;
@@ -70,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int newScore)
     {
-        if (!isGameOver)
+        if (!isGameOver && !isDead)
         {
             score += newScore;
             scoreText.text = "Score : " + score;
@@ -83,6 +81,7 @@ public class GameManager : MonoBehaviour
         {
             gameoverUI.SetActive(true);
         }
+        aud.Stop();
         Time.timeScale = 0;
 
     }
