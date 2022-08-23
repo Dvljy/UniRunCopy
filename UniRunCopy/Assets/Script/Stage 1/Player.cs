@@ -5,13 +5,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float JumpPower;
+    [SerializeField] GameObject[] heart;
+    [SerializeField] GameObject panel;
 
     Rigidbody2D rigid;
     Animator anim;
     AudioSource playeraudio;
     [SerializeField] SpriteRenderer PyColor;
     public AudioClip Die;
+    
     int JumpCount;
+    int currhp;
+    int maxhp = 3;
     
 
 
@@ -22,7 +27,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playeraudio = GetComponent<AudioSource>();
-        
+        currhp = maxhp;
     }
 
 
@@ -36,7 +41,7 @@ public class Player : MonoBehaviour
 
     void PJ()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && JumpCount < 2)
+        if (Input.GetMouseButtonDown(0) && JumpCount < 2 && !panel.activeSelf)
         {
             JumpCount++;
 
@@ -45,7 +50,7 @@ public class Player : MonoBehaviour
 
 
         }
-        else if (Input.GetKeyUp(KeyCode.Space) && rigid.velocity.y > 0)
+        else if (Input.GetMouseButtonDown(0) && rigid.velocity.y > 0 && panel.activeSelf)
         {
             rigid.velocity = rigid.velocity * 0.5f;
         }
@@ -67,6 +72,10 @@ public class Player : MonoBehaviour
 
     public void PlayerDie()
     {
+        if (currhp == 0)
+        {
+            GameManager.isDead = true;
+        }
         PyColor.material.color = Color.red;
         playeraudio.clip = Die;
         playeraudio.Play();
@@ -95,10 +104,16 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag == "obstacles")
+        {
+            currhp--;
+            Destroy(heart[0]);
+        }
         if (other.tag == "Dead" && !GameManager.isDead)
         {
             PlayerDie();
         }
+        
     }
 
 }

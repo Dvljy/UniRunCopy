@@ -13,22 +13,20 @@ public class Spike : MonoBehaviour
 
     private void OnEnable()
     {
+        
         for (int i = 0; i < obstacles.Length; i++)
         {
-            if (Random.Range(0, 3) > 0)
+            /*if (Random.Range(0, 3) > 0)
             {
                 obstacles[i].SetActive(true);
-
-
             }
             else
             {
                 obstacles[i].SetActive(false);
-
-
-            }
-
+            }*/
+            obstacles[i].SetActive(Random.Range(0, 3) == 0 ? true : false);
         }
+        
     }
 
     void Start()

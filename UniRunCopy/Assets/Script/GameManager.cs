@@ -11,17 +11,17 @@ public class GameManager : MonoBehaviour
     public AudioSource aud;
     //public AudioClip Main
     [SerializeField] GameObject Panel;
+    [SerializeField] Button Menubutton;
 
-    [HideInInspector]public bool isGameOver = false;
+    [HideInInspector] public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject gameoverUI;
     private int score = 0;
     public static bool isDead = false;
 
-
     void Awake()
     {
-        
+
         aud = GetComponent<AudioSource>();
         //audio.clip = Main;
         aud.Play();
@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
-        if ( Input.GetMouseButton(1)||Input.GetKeyDown(KeyCode.Space)&&isDead)
+
+        if (Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.Space) && isDead)
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("Stage 1");
@@ -58,12 +58,18 @@ public class GameManager : MonoBehaviour
             OnPlayerDead();
             Time.timeScale = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Panel.SetActive(!Panel.activeSelf);
-            
-        }
 
+        
+        
+
+
+    }
+
+    public void PanelOn()
+    {
+        
+            Panel.SetActive(!Panel.activeSelf);
+        
     }
 
     public void AddScore(int newScore)
