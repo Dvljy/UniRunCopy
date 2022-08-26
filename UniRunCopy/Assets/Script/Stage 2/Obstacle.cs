@@ -6,20 +6,12 @@ public class Obstacle : MonoBehaviour
 {
     [SerializeField] GameObject[] ob;
 
-    GameObject[] obstacle;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
         for (int i = 0; i < ob.Length; i++)
         {
-            obstacle[i] = Instantiate(ob, new Vector3(0, 1, 0), Quaternion.identity);
+            ob[i].SetActive(Random.Range(0, 7) == 0 ? true : false);
         }
-        
-        //GameObject.Instantiate(ob,new Vector3(0,0,0),Quaternion.identity);
     }
+
 }

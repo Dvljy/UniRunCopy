@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject gameoverUI;
-    private int score = 0;
+    public static int score =0;
     public static bool isDead = false;
+    public static bool nextstage = false;
+
+
 
     void Awake()
     {
-
+        
         aud = GetComponent<AudioSource>();
         //audio.clip = Main;
         aud.Play();
@@ -34,23 +37,23 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("씬에 두 개 이상의 게임 매니저가 존재합니다!");
             Destroy(gameObject);
         }
-
-
-
+        
 
     }
 
     void Update()
     {
-
+        AddScore(0);
         if (Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.Space) && isDead)
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene("Stage 1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene("Stage 1");
             isDead = false;
+            
         }
-        if (score >= 20)
+        if (score >= 35 && !nextstage)
         {
+            nextstage = true;
             SceneManager.LoadScene("Stage 2");
         }
         if (isDead)
@@ -59,8 +62,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        
-        
+       
+
 
 
     }
@@ -85,10 +88,10 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameOver)
         {
-            gameoverUI.SetActive(true);
+            gameoverUI. SetActive(true);
         }
         aud.Stop();
         Time.timeScale = 0;
-
     }
+
 }

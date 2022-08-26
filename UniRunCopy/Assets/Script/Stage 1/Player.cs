@@ -13,11 +13,10 @@ public class Player : MonoBehaviour
     AudioSource playeraudio;
     [SerializeField] SpriteRenderer PyColor;
     public AudioClip Die;
-    
+
     int JumpCount;
-    int currhp;
-    int maxhp = 3;
-    
+
+
 
 
     bool isGrounded = true;
@@ -27,7 +26,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playeraudio = GetComponent<AudioSource>();
-        currhp = maxhp;
+
     }
 
 
@@ -67,12 +66,13 @@ public class Player : MonoBehaviour
             anim.SetBool("isGrounded", false);
         }
 
+
     }
 
 
     public void PlayerDie()
     {
-        if (currhp == 0)
+        if (Heart.cur_hp == 0)
         {
             GameManager.isDead = true;
         }
@@ -83,9 +83,20 @@ public class Player : MonoBehaviour
         GameManager.isDead = true;
     }
 
-    private void FixedUpdate()
+    void Damaged()
     {
-        
+        //부딪친 후 레이어 변경
+        this.gameObject.layer = 7;
+        //장애물과 부딪칠 시 색 변경
+        PyColor.color = new Color(1, 1, 1, 0.4f);
+
+        Invoke("OffDamaged", 2);
+    }
+
+    void OffDamaged()
+    {
+        this.gameObject.layer = 6;
+        PyColor.color = new Color(1, 1, 1, 1);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -95,7 +106,7 @@ public class Player : MonoBehaviour
             isGrounded = true;
             JumpCount = 0;
         }
-        
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -106,14 +117,26 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "obstacles")
         {
-            currhp--;
-            Destroy(heart[0]);
+            Damaged();
+            Heart.cur_hp--;
+            if (Heart.cur_hp == 0)
+            {
+                PlayerDie();
+                //GameManager.instance.isGameOver = true;
+                GameManager.isDead = true;
+                GameManager.instance.aud.enabled = false;
+            }
         }
         if (other.tag == "Dead" && !GameManager.isDead)
         {
             PlayerDie();
         }
-        
+        GameManager.score = other.tag == "Bronze" ? GameManager.score+1 : 
+            other.tag == "Silver" ? GameManager.score + 2 : 
+            GameManager.score + 4;
+
     }
 
 }
+
+

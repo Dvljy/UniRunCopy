@@ -11,6 +11,9 @@ TagManager:
   - Ttang
   - Continue
   - ReStart
+  - Bronze
+  - Silver
+  - Gold
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Play
+  - Damaged
   - 
   - 
   - 
@@ -59,4 +62,7 @@ TagManager:
     locked: 0
   - name: Play
     uniqueID: 254107803
+    locked: 0
+  - name: Ui
+    uniqueID: 2538837959
     locked: 0

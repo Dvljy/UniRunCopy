@@ -67,11 +67,7 @@ public class LandSpawner : MonoBehaviour // 콜론은 상속 개념
 
             
         }
-        //if (GameManager.isDead)
-        //{
-        //    currentIndex = 3;
-        //    return;
-        //}
+   
     }
 
     
