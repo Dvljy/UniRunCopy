@@ -115,6 +115,21 @@ public class PlayerCR : MonoBehaviour
                 Damaged();
             }*/
         }
+        if (collision.tag == "Bronze")
+        {
+            GameManager.score += 1;
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.tag == "Silver")
+        {
+            GameManager.score += 2;
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.tag == "Gold")
+        {
+            GameManager.score += 4;
+            collision.gameObject.SetActive(false);
+        }
         if (collision.tag == "Dead")
         {
             PD();

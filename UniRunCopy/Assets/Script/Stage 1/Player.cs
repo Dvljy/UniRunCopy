@@ -127,13 +127,26 @@ public class Player : MonoBehaviour
                 GameManager.instance.aud.enabled = false;
             }
         }
+        if (other.tag == "Bronze")
+        {
+            GameManager.score += 1;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.tag == "Silver")
+        {
+            GameManager.score += 2;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.tag == "Gold")
+        {
+            GameManager.score += 4;
+            other.gameObject.SetActive(false);
+        }
         if (other.tag == "Dead" && !GameManager.isDead)
         {
             PlayerDie();
         }
-        GameManager.score = other.tag == "Bronze" ? GameManager.score+1 : 
-            other.tag == "Silver" ? GameManager.score + 2 : 
-            GameManager.score + 4;
+        
 
     }
 

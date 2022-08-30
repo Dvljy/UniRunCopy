@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     //public AudioClip Main
     [SerializeField] GameObject Panel;
     [SerializeField] Button Menubutton;
+    [SerializeField] TextMeshProUGUI GameEnding;
 
     [HideInInspector] public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI scoreText;
@@ -47,11 +48,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.Space) && isDead)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            score = 0;
             //SceneManager.LoadScene("Stage 1");
             isDead = false;
             
         }
-        if (score >= 35 && !nextstage)
+        if (score >= 25 && !nextstage)
         {
             nextstage = true;
             SceneManager.LoadScene("Stage 2");
@@ -60,6 +62,18 @@ public class GameManager : MonoBehaviour
         {
             OnPlayerDead();
             Time.timeScale = 1;
+        }
+        if (score >= 60 && !isGameOver && !isDead)
+        {
+            GameEnding.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            if (Input.GetMouseButton(0))
+            {
+                Time.timeScale = 1;
+                score = 0;
+                nextstage = false;
+                SceneManager.LoadScene("GameStart");
+            }
         }
 
        

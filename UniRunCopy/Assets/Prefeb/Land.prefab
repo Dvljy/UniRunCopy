@@ -125,13 +125,13 @@ GameObject:
   - component: {fileID: 7926582842164796575}
   - component: {fileID: 6855685537724934061}
   - component: {fileID: 855900207822621098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Silver
   m_TagString: Silver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3137359270889353071
 Transform:
   m_ObjectHideFlags: 0
@@ -185,8 +185,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1756129337
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 6582046967323461550, guid: 274d64617113287499ed1c4165d1d8f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,7 +232,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0136149, y: -0.013615161}
+  m_Offset: {x: -0.0026794076, y: 0.014900327}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -243,7 +243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4553945, y: 0.45539457}
+  m_Size: {x: 0.5205718, y: 0.5450146}
   m_EdgeRadius: 0
 --- !u!1 &4689761411411919024
 GameObject:
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 8723661766891310910}
   - component: {fileID: 8951414175924202286}
   - component: {fileID: 7193396216805718451}
-  - component: {fileID: 9103925997976415292}
+  - component: {fileID: 4796139599868314943}
   m_Layer: 0
   m_Name: Land
   m_TagString: Platforms
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9061beea8163a83478c7e707dd6dc197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
+  speed: 11
 --- !u!114 &8723661766891310910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9103925997976415292
+--- !u!114 &4796139599868314943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -598,10 +598,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4689761411793871085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65737cfff9c6c6941938b4f17f99d885, type: 3}
+  m_Script: {fileID: 11500000, guid: 87b7ce677b65d614686de62c6d85adc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin:
+  ob:
   - {fileID: 5434155494856979511}
   - {fileID: 6332394691060421041}
   - {fileID: 4037358413563071461}
@@ -1738,13 +1738,13 @@ GameObject:
   - component: {fileID: 9008484504769158454}
   - component: {fileID: 7668001423873039754}
   - component: {fileID: 997614232988528300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bronze
   m_TagString: Bronze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1506938193223941257
 Transform:
   m_ObjectHideFlags: 0
@@ -1798,8 +1798,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1756129337
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2322180950842035098, guid: 274d64617113287499ed1c4165d1d8f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1845,7 +1845,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020422786, y: -0.0068075955}
+  m_Offset: {x: 0.004018888, y: -0.0027339458}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1856,7 +1856,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38731807, y: 0.4553938}
+  m_Size: {x: 0.46879086, y: 0.5124247}
   m_EdgeRadius: 0
 --- !u!1 &6332394691060421041
 GameObject:
@@ -1870,13 +1870,13 @@ GameObject:
   - component: {fileID: 4076011844238577111}
   - component: {fileID: 7275472642613616126}
   - component: {fileID: 7272069503852353129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gold
   m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1086370631589824251
 Transform:
   m_ObjectHideFlags: 0
@@ -1930,8 +1930,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1756129337
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -4986890610287934012, guid: 274d64617113287499ed1c4165d1d8f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1977,7 +1977,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006807804, y: 0.0068076104}
+  m_Offset: {x: -0.0054131895, y: 0.006807685}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1988,7 +1988,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46900895, y: 0.49623933}
+  m_Size: {x: 0.54233456, y: 0.57771206}
   m_EdgeRadius: 0
 --- !u!1 &9093409814639390483
 GameObject:

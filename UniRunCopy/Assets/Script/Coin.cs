@@ -7,13 +7,13 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] GameObject[] coin;
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         for (int i = 0; i < coin.Length; i++)
         {
             coin[i].SetActive(Random.Range(0, 3) == 0 ? true : false);
         }
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
